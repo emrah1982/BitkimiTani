@@ -1,0 +1,2547 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BitkimiTaniModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AraziBilgileri_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="Ada" Type="nchar" MaxLength="10" />
+          <Property Name="Pafta" Type="nchar" MaxLength="10" />
+          <Property Name="Parsel" Type="nchar" MaxLength="10" />
+          <Property Name="YuzOlcumu" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BitkiAd_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TurkceAdi" Type="nvarchar" MaxLength="60" />
+          <Property Name="IngilizceAdi" Type="nvarchar" MaxLength="60" />
+          <Property Name="LatinceAdi" Type="nvarchar" MaxLength="60" />
+          <Property Name="SinonimAdi" Type="nvarchar" MaxLength="60" />
+          <Property Name="YerelAdlar" Type="nvarchar" MaxLength="60" />
+          <Property Name="KayitVersiyon" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="Aktif" Type="smallint" />
+          <Property Name="Silik" Type="int" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="GuncellenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BitkiDetay_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Bitki_Ad_ID" Type="int" />
+          <Property Name="Bitki_Sistematik_ID" Type="int" />
+          <Property Name="Bitki_Morfoloji_ID" Type="int" />
+          <Property Name="Bitki_Ekoloji_ID" Type="int" />
+          <Property Name="Bitki_Uretim_ID" Type="int" />
+          <Property Name="Bitki_Tanima_ID" Type="int" />
+          <Property Name="Bitki_Kullanim_ID" Type="int" />
+          <Property Name="Bitki_EkBilgiler_ID" Type="int" />
+          <Property Name="Bitki_Hastaliklari_ID" Type="int" />
+          <Property Name="Bitki_Zararlilari_ID" Type="int" />
+          <Property Name="BilgiEkleyenKullanici_ID" Type="int" />
+          <Property Name="BitkiResimleri_ID" Type="int" />
+          <Property Name="Bitki_EklenmeZamani" Type="date" />
+          <Property Name="Konum" Type="nchar" MaxLength="10" />
+          <Property Name="Sil" Type="bit" />
+          <Property Name="Güncelle" Type="bit" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="Ekle" Type="bit" />
+          <Property Name="YazmaYetkisi" Type="bit" />
+        </EntityType>
+        <EntityType Name="BitkiEkoloji_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="Iklim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Isik" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sicaklik" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gorunus" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ca" Type="nvarchar" MaxLength="50" />
+          <Property Name="P" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soc" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakYapisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakEnDusuk_Ph" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakEnYuksek_Ph" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolgeSoguklugu" Type="nvarchar" MaxLength="50" />
+          <Property Name="BolgeSicakligiGunSayisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="KusakSoguklugu" Type="nvarchar" MaxLength="50" />
+          <Property Name="KusakSicakligi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Minerallar" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakPh" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BitkiHastaliklari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiHastalikSinifi" Type="nchar" MaxLength="10" />
+          <Property Name="BitkiHastalikAdi" Type="nchar" MaxLength="10" />
+          <Property Name="HastalikResimleri_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="BitkiHastalikResimleri_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiHastalikResimleri" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BitkiHastalikResimleri_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resimler" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BitkiKullanim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="KullanimAlanlari" Type="nvarchar" MaxLength="50" />
+          <Property Name="PeyzajdaKullanim" Type="nvarchar" MaxLength="50" />
+          <Property Name="SusBitkileri" Type="nvarchar" MaxLength="50" />
+          <Property Name="TibbiAramotikBitkiler" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BitkiMineraller_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="MineralAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MineralHakkindaBilgiler" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nem" Type="nvarchar" MaxLength="50" />
+          <Property Name="MineralMinDegeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="MineralMaxDegeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="TopraktaBulunmasiGerekenMineraller" Type="nvarchar" MaxLength="500" />
+          <Property Name="AnalizBirimi" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="BitkiMorfoloji_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="GenelBilgi" Type="nvarchar" MaxLength="50" />
+          <Property Name="CiceklenmeZamani" Type="nvarchar" MaxLength="50" />
+          <Property Name="YaprakTipi" Type="tinyint" />
+          <Property Name="Kokusu" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnDusukRakim" Type="nvarchar" MaxLength="5" />
+          <Property Name="EnYuksekRakim" Type="nvarchar" MaxLength="5" />
+          <Property Name="Budama" Type="nvarchar" MaxLength="50" />
+          <Property Name="MeyveTipi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DalFormu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cicek" Type="nvarchar" MaxLength="50" />
+          <Property Name="CicekRengi" Type="nvarchar" MaxLength="50" />
+          <Property Name="CiceklilikSuresi" Type="nvarchar" MaxLength="5" />
+          <Property Name="EnUzunBoy" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnKisaBoy" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrtalamaBoy" Type="nvarchar" MaxLength="50" />
+          <Property Name="YaprakDizilisi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BitkiResimleri_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EgitimResimleri" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="BitkiResimleri_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Genel_BitkiResimleri" Type="nchar" MaxLength="10" />
+          <Property Name="Cicek_BitkiResimleri" Type="nchar" MaxLength="10" />
+          <Property Name="Yaprak_BitkiResimleri" Type="nchar" MaxLength="10" />
+          <Property Name="Govde_BitkiResimleri" Type="nchar" MaxLength="10" />
+          <Property Name="Meyvesi_BitkiResimleri" Type="nchar" MaxLength="10" />
+          <Property Name="BegeniPuani" Type="nchar" MaxLength="10" />
+          <Property Name="BegenmemePuani" Type="nchar" MaxLength="10" />
+          <Property Name="FavoriPuani" Type="nchar" MaxLength="10" />
+          <Property Name="Aktif" Type="smallint" />
+          <Property Name="Silik" Type="int" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="GuncellenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BitkiSistematigi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="Alem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bolum" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sinif" Type="nvarchar" MaxLength="50" />
+          <Property Name="Takim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Familya" Type="nvarchar" MaxLength="50" />
+          <Property Name="Cins" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tur" Type="nvarchar" MaxLength="50" />
+          <Property Name="AltTurler" Type="nvarchar" MaxLength="50" />
+          <Property Name="GuncellenmeTarihi" Type="datetime" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="Aktif" Type="smallint" />
+          <Property Name="Silik" Type="int" />
+          <Property Name="KayitVersiyon" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="BitkiTanima_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="BitkiTipi_Tur" Type="nvarchar" MaxLength="50" />
+          <Property Name="Toleranslari" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetistigiSehirler" Type="nvarchar" MaxLength="50" />
+          <Property Name="AnavataniVeDogalYayilisAlanlari" Type="nvarchar" MaxLength="50" />
+          <Property Name="ArsizlikDurumu" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetismeDurumu" Type="nvarchar" MaxLength="50" />
+          <Property Name="DogalYasamAlanlari" Type="nvarchar" MaxLength="50" />
+          <Property Name="YasamSuresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToksikOzellikler" Type="nvarchar" MaxLength="50" />
+          <Property Name="HangiDonem" Type="nvarchar" MaxLength="50" />
+          <Property Name="BitkiYetismeAlanlari" Type="nvarchar" MaxLength="50" />
+          <Property Name="Endemik" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BitkiTur_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiTur" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BitkiZararlilari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiZararlilariSinifi" Type="nchar" MaxLength="10" />
+          <Property Name="BitkiZararlilariAdi" Type="nchar" MaxLength="10" />
+          <Property Name="ZararlininResimleri_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="EkBilgiler_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="Notlar" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kaynaklar" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ekip_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EkipAdi" Type="nchar" MaxLength="10" />
+          <Property Name="EkipKonumAdresi" Type="nchar" MaxLength="10" />
+          <Property Name="Kullanici_ID" Type="nchar" MaxLength="10" />
+          <Property Name="OlusturmaTarihi" Type="nchar" MaxLength="10" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="EkipIletisimTelefon" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="FavoriBitki_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="Degerlendirmeler" Type="tinyint" />
+          <Property Name="EklenmeTarihi" Type="timestamp" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Gubre_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UrunBilgisi_ID" Type="int" />
+          <Property Name="Numune_ID" Type="int" />
+          <Property Name="AraziBilgileri_ID" Type="int" />
+          <Property Name="GubreAnalizi" Type="nvarchar" MaxLength="350" />
+          <Property Name="EkimGubresiTavsiyesi" Type="nvarchar" MaxLength="350" />
+          <Property Name="EkimGubresiTarih" Type="date" />
+          <Property Name="EkimGubresiMiktari" Type="nvarchar" MaxLength="5" />
+          <Property Name="UstGubreTavsiyesi" Type="nchar" MaxLength="10" />
+          <Property Name="UstGubreMiktari" Type="nchar" MaxLength="10" />
+          <Property Name="UstGubreTarih" Type="nchar" MaxLength="10" />
+          <Property Name="DonusumKatsayisi" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Hastalik_BesinEksikligi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BesinEksiligiMineralAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="EnSikGorulenMineralEksikligi" Type="bit" />
+        </EntityType>
+        <EntityType Name="HastalikAdlari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HastalikSinif_ID" Type="int" />
+          <Property Name="HastalikAdi" Type="nvarchar" MaxLength="500" />
+          <Property Name="HastalikBelirtileri" Type="nvarchar(max)" />
+          <Property Name="HastalikResimleri" Type="int" />
+        </EntityType>
+        <EntityType Name="HastalikSiniflari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HastalikSinifi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HavaDurumu_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sicaklik" Type="nvarchar" MaxLength="5" />
+          <Property Name="Yagis" Type="nvarchar" MaxLength="5" />
+          <Property Name="Nem" Type="nvarchar" MaxLength="5" />
+          <Property Name="Ruzgar" Type="nvarchar" MaxLength="5" />
+          <Property Name="DenizeIndirgenmisBasinc" Type="nvarchar" MaxLength="5" />
+          <Property Name="AktüelBasinc" Type="nvarchar" MaxLength="5" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="Tarih" Type="nvarchar" MaxLength="10" />
+          <Property Name="HavaDurumuWeb_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="HavaDurumuWebAdresi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HavaDurumuWebAdresi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'BitkimiTani.dbo.il_tbl' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="il_tbl">
+          <Key>
+            <PropertyRef Name="il_ad" />
+            <PropertyRef Name="plaka_no" />
+            <PropertyRef Name="telefon_kodu" />
+          </Key>
+          <Property Name="il_ad" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="plaka_no" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="telefon_kodu" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ilce_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="il_id" Type="int" />
+          <Property Name="ilce" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Kullanici_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="nvarchar" MaxLength="40" />
+          <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="600" />
+          <Property Name="Sehir" Type="tinyint" />
+          <Property Name="DogumTarihi" Type="nvarchar" MaxLength="10" />
+          <Property Name="CepTelefonu" Type="nvarchar" MaxLength="12" />
+          <Property Name="CepTelefonuOnayKodu" Type="nvarchar" MaxLength="7" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="16" />
+          <Property Name="Resim" Type="nvarchar(max)" />
+          <Property Name="MailSifreOnay" Type="nvarchar" MaxLength="7" />
+          <Property Name="Onay" Type="bit" />
+          <Property Name="Token" Type="nvarchar" MaxLength="50" />
+          <Property Name="EklenmeTarihi" Type="date" />
+          <Property Name="GuncellemeTarihi" Type="date" />
+          <Property Name="SilinmeTarihi" Type="date" />
+          <Property Name="Aktif" Type="bit" />
+        </EntityType>
+        <EntityType Name="KullaniciRoles_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="KullaniciSosyalMedya_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="facebook" Type="nvarchar" MaxLength="250" />
+          <Property Name="instagram" Type="nvarchar" MaxLength="250" />
+          <Property Name="twitter" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="KullaniciYorumlari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="KullaniciYorumlari" Type="nchar" MaxLength="10" />
+          <Property Name="YorumTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" />
+          <Property Name="ErrorMessage" Type="nvarchar(max)" />
+          <Property Name="ErrorAction" Type="nvarchar(max)" />
+          <Property Name="ErrorDetail" Type="nvarchar(max)" />
+          <Property Name="ErrorController" Type="nvarchar(max)" />
+          <Property Name="ErrorTime" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="MahsulBilgisi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="TarimSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="HasatZamani" Type="nvarchar" MaxLength="10" />
+          <Property Name="DikimZamani" Type="nvarchar" MaxLength="50" />
+          <Property Name="OlgunlasmaSuresi" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Mail_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" />
+          <Property Name="KimeGonderildiID" Type="int" />
+          <Property Name="MailBaslik" Type="nvarchar(max)" />
+          <Property Name="MailKonusu" Type="nvarchar" MaxLength="550" />
+          <Property Name="GonderilmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NumuneKonum_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumuneID" Type="int" />
+          <Property Name="yKonum" Type="nchar" MaxLength="10" />
+          <Property Name="xKonum" Type="nchar" MaxLength="10" />
+          <Property Name="Aktif" Type="smallint" />
+          <Property Name="Silik" Type="int" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+          <Property Name="GuncellenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Roles_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="int" />
+          <Property Name="YetkiTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="YetkiTipi" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ToprakAnalizi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NumuneNo" Type="nchar" MaxLength="10" />
+          <Property Name="NumuneTarihi" Type="datetime" />
+          <Property Name="AnalizID" Type="int" />
+          <Property Name="KonumID" Type="int" />
+          <Property Name="UrunBitki_ID" Type="int" />
+          <Property Name="Derinlik" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ToprakMineral_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="MineralAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nem" Type="nvarchar" MaxLength="50" />
+          <Property Name="MineralHakkindaBilgi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakMinDegeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ToprakMaxDegeri" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ToprakMineralleri_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AnalizAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="AnalizSonucu" Type="nchar" MaxLength="10" />
+          <Property Name="AnalizMinDegeri" Type="nchar" MaxLength="10" />
+          <Property Name="AnalizMaxDegeri" Type="nchar" MaxLength="10" />
+          <Property Name="Nem" Type="nchar" MaxLength="10" />
+          <Property Name="AnalizBirimi" Type="nchar" MaxLength="10" />
+          <Property Name="MineralHakkindaBilgi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Uretim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BitkiAd_ID" Type="int" />
+          <Property Name="VideoLinki" Type="nvarchar" MaxLength="50" />
+          <Property Name="UretimYontemleri" Type="nvarchar" MaxLength="50" />
+          <Property Name="CelikleUretim" Type="nvarchar" MaxLength="50" />
+          <Property Name="GelisimHizi" Type="nvarchar" MaxLength="50" />
+          <Property Name="BakimIhtiyaci" Type="nvarchar" MaxLength="50" />
+          <Property Name="SulamaYontemi" Type="nvarchar" MaxLength="50" />
+          <Property Name="TohumDikimDerinligi_Min" Type="nvarchar" MaxLength="50" />
+          <Property Name="TohumDikimDerinligi_Max" Type="nvarchar" MaxLength="50" />
+          <Property Name="AraziOlcusu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SulamaTarihi" Type="nvarchar" MaxLength="50" />
+          <Property Name="RuzgarHizi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrtamSicakligi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SogukKusak" Type="nvarchar" MaxLength="50" />
+          <Property Name="SicakKusak" Type="nvarchar" MaxLength="50" />
+          <Property Name="YillikSicaklikGunSayisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoguyaDayaniklililkSicaklikAraligi" Type="nvarchar" MaxLength="50" />
+          <Property Name="MevsimineGore" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="versiyon_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dizin" Type="nvarchar" MaxLength="50" />
+          <Property Name="versiyon" Type="nvarchar" MaxLength="255" />
+          <Property Name="versiyonTarihi" Type="date" />
+          <Property Name="versiyonAciklama" Type="nvarchar(max)" />
+          <Property Name="aktif" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yaprak_AyasinaGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="IgneYapraklilar" Type="bit" />
+          <Property Name="DikenliYapraklilar" Type="bit" />
+          <Property Name="OvalYapraklilar" Type="bit" />
+          <Property Name="SeritYapraklilar" Type="bit" />
+          <Property Name="SpatulYapraklilar" Type="bit" />
+          <Property Name="EtliYapraklilar" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yaprak_Damarimsi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="AgsiDamar" Type="bit" />
+          <Property Name="ParalelDamar" Type="bit" />
+          <Property Name="BasitDamar" Type="bit" />
+          <Property Name="CatalsiDamar" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yaprak_DizlislerineGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitk_ID" Type="int" />
+          <Property Name="SarmalDizlisliYapraklar" Type="bit" />
+          <Property Name="HalkaliDizlisliYapraklar" Type="bit" />
+          <Property Name="KarsilikliDizlisliYapraklar" Type="bit" />
+        </EntityType>
+        <EntityType Name="Yaprak_KenarlarinaGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Bitki_ID" Type="int" />
+          <Property Name="DuzKenar" Type="bit" />
+          <Property Name="DisliKenar" Type="bit" />
+          <Property Name="BolmeliKenar" Type="bit" />
+          <Property Name="ParcaKenar" Type="bit" />
+        </EntityType>
+        <EntityType Name="YaprakTipi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YaprakTipi" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="YaprakTuru_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YaprakTipi" Type="int" />
+          <Property Name="YaprakAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZararliHakkindaBilgi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZararliTuru_ID" Type="tinyint" />
+          <Property Name="ZararlininAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Resimleri" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ZararlilarinResim_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="ZararlilarinResim_Egitim" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ZararlilarinResim_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZararliResimleri" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="ZararliTuru_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ZararliTuru" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_BitkiDetay_tbl_BitkiHastaliklari_tbl">
+          <End Role="BitkiHastaliklari_tbl" Type="Self.BitkiHastaliklari_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiHastaliklari_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Hastaliklari_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiKullanim_tbl">
+          <End Role="BitkiKullanim_tbl" Type="Self.BitkiKullanim_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiKullanim_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Kullanim_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiMorfoloji_tbl">
+          <End Role="BitkiMorfoloji_tbl" Type="Self.BitkiMorfoloji_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiMorfoloji_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Morfoloji_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiResimleri_tbl">
+          <End Role="BitkiResimleri_Test_tbl" Type="Self.BitkiResimleri_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiResimleri_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="BitkiResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiSistematigi_tbl">
+          <End Role="BitkiSistematigi_tbl" Type="Self.BitkiSistematigi_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiSistematigi_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Sistematik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiTanima_tbl">
+          <End Role="BitkiTanima_tbl" Type="Self.BitkiTanima_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiTanima_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Tanima_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiZararlilari_tbl">
+          <End Role="BitkiZararlilari_tbl" Type="Self.BitkiZararlilari_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiZararlilari_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Zararlilari_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_EkBilgiler_tbl">
+          <End Role="EkBilgiler_tbl" Type="Self.EkBilgiler_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EkBilgiler_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_EkBilgiler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_Ekoloji_tbl">
+          <End Role="BitkiEkoloji_tbl" Type="Self.BitkiEkoloji_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiEkoloji_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Ekoloji_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_Uretim_tbl">
+          <End Role="Uretim_tbl" Type="Self.Uretim_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uretim_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Tanima_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl">
+          <End Role="BitkiHastalikResimleri_Test_tbl" Type="Self.BitkiHastalikResimleri_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiHastaliklari_tbl" Type="Self.BitkiHastaliklari_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiHastalikResimleri_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiHastaliklari_tbl">
+              <PropertyRef Name="HastalikResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl">
+          <End Role="ZararlilarinResim_Test_tbl" Type="Self.ZararlilarinResim_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiZararlilari_tbl" Type="Self.BitkiZararlilari_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZararlilarinResim_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiZararlilari_tbl">
+              <PropertyRef Name="ZararlininResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriBitki_tbl_BitkiDetay_tbl">
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="0..1" />
+          <End Role="FavoriBitki_tbl" Type="Self.FavoriBitki_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiDetay_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriBitki_tbl">
+              <PropertyRef Name="Bitki_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriBitki_tbl_Kullanici_tbl">
+          <End Role="Kullanici_tbl" Type="Self.Kullanici_tbl" Multiplicity="0..1" />
+          <End Role="FavoriBitki_tbl" Type="Self.FavoriBitki_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriBitki_tbl">
+              <PropertyRef Name="Kullanici_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BitkimiTaniModelStoreContainer">
+          <EntitySet Name="AraziBilgileri_tbl" EntityType="Self.AraziBilgileri_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiAd_tbl" EntityType="Self.BitkiAd_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiDetay_tbl" EntityType="Self.BitkiDetay_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiEkoloji_tbl" EntityType="Self.BitkiEkoloji_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiHastaliklari_tbl" EntityType="Self.BitkiHastaliklari_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiHastalikResimleri_Egitim_tbl" EntityType="Self.BitkiHastalikResimleri_Egitim_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiHastalikResimleri_Test_tbl" EntityType="Self.BitkiHastalikResimleri_Test_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiKullanim_tbl" EntityType="Self.BitkiKullanim_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiMineraller_tbl" EntityType="Self.BitkiMineraller_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiMorfoloji_tbl" EntityType="Self.BitkiMorfoloji_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiResimleri_Egitim_tbl" EntityType="Self.BitkiResimleri_Egitim_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiResimleri_Test_tbl" EntityType="Self.BitkiResimleri_Test_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiSistematigi_tbl" EntityType="Self.BitkiSistematigi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiTanima_tbl" EntityType="Self.BitkiTanima_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiTur_tbl" EntityType="Self.BitkiTur_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BitkiZararlilari_tbl" EntityType="Self.BitkiZararlilari_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EkBilgiler_tbl" EntityType="Self.EkBilgiler_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ekip_tbl" EntityType="Self.Ekip_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FavoriBitki_tbl" EntityType="Self.FavoriBitki_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gubre_tbl" EntityType="Self.Gubre_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hastalik_BesinEksikligi_tbl" EntityType="Self.Hastalik_BesinEksikligi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HastalikAdlari_tbl" EntityType="Self.HastalikAdlari_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HastalikSiniflari_tbl" EntityType="Self.HastalikSiniflari_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HavaDurumu_tbl" EntityType="Self.HavaDurumu_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HavaDurumuWebAdresi_tbl" EntityType="Self.HavaDurumuWebAdresi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ilce_tbl" EntityType="Self.ilce_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici_tbl" EntityType="Self.Kullanici_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciRoles_tbl" EntityType="Self.KullaniciRoles_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciSosyalMedya_tbl" EntityType="Self.KullaniciSosyalMedya_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KullaniciYorumlari_tbl" EntityType="Self.KullaniciYorumlari_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MahsulBilgisi_tbl" EntityType="Self.MahsulBilgisi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mail_tbl" EntityType="Self.Mail_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NumuneKonum_tbl" EntityType="Self.NumuneKonum_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles_tbl" EntityType="Self.Roles_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToprakAnalizi_tbl" EntityType="Self.ToprakAnalizi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToprakMineral_tbl" EntityType="Self.ToprakMineral_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToprakMineralleri_tbl" EntityType="Self.ToprakMineralleri_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uretim_tbl" EntityType="Self.Uretim_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="versiyon_tbl" EntityType="Self.versiyon_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yaprak_AyasinaGore_tbl" EntityType="Self.Yaprak_AyasinaGore_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yaprak_Damarimsi_tbl" EntityType="Self.Yaprak_Damarimsi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yaprak_DizlislerineGore_tbl" EntityType="Self.Yaprak_DizlislerineGore_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yaprak_KenarlarinaGore_tbl" EntityType="Self.Yaprak_KenarlarinaGore_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YaprakTipi_tbl" EntityType="Self.YaprakTipi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YaprakTuru_tbl" EntityType="Self.YaprakTuru_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZararliHakkindaBilgi_tbl" EntityType="Self.ZararliHakkindaBilgi_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZararlilarinResim_Egitim_tbl" EntityType="Self.ZararlilarinResim_Egitim_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZararlilarinResim_Test_tbl" EntityType="Self.ZararlilarinResim_Test_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ZararliTuru_tbl" EntityType="Self.ZararliTuru_tbl" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="il_tbl" EntityType="Self.il_tbl" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [il_tbl].[il_ad] AS [il_ad], 
+    [il_tbl].[plaka_no] AS [plaka_no], 
+    [il_tbl].[telefon_kodu] AS [telefon_kodu]
+    FROM [dbo].[il_tbl] AS [il_tbl]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiHastaliklari_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiHastaliklari_tbl">
+            <End Role="BitkiHastaliklari_tbl" EntitySet="BitkiHastaliklari_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiKullanim_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiKullanim_tbl">
+            <End Role="BitkiKullanim_tbl" EntitySet="BitkiKullanim_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiMorfoloji_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiMorfoloji_tbl">
+            <End Role="BitkiMorfoloji_tbl" EntitySet="BitkiMorfoloji_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiResimleri_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiResimleri_tbl">
+            <End Role="BitkiResimleri_Test_tbl" EntitySet="BitkiResimleri_Test_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiSistematigi_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiSistematigi_tbl">
+            <End Role="BitkiSistematigi_tbl" EntitySet="BitkiSistematigi_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiTanima_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiTanima_tbl">
+            <End Role="BitkiTanima_tbl" EntitySet="BitkiTanima_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiZararlilari_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiZararlilari_tbl">
+            <End Role="BitkiZararlilari_tbl" EntitySet="BitkiZararlilari_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_EkBilgiler_tbl" Association="Self.FK_BitkiDetay_tbl_EkBilgiler_tbl">
+            <End Role="EkBilgiler_tbl" EntitySet="EkBilgiler_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_Ekoloji_tbl" Association="Self.FK_BitkiDetay_tbl_Ekoloji_tbl">
+            <End Role="BitkiEkoloji_tbl" EntitySet="BitkiEkoloji_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_Uretim_tbl" Association="Self.FK_BitkiDetay_tbl_Uretim_tbl">
+            <End Role="Uretim_tbl" EntitySet="Uretim_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl" Association="Self.FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl">
+            <End Role="BitkiHastalikResimleri_Test_tbl" EntitySet="BitkiHastalikResimleri_Test_tbl" />
+            <End Role="BitkiHastaliklari_tbl" EntitySet="BitkiHastaliklari_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl" Association="Self.FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl">
+            <End Role="ZararlilarinResim_Test_tbl" EntitySet="ZararlilarinResim_Test_tbl" />
+            <End Role="BitkiZararlilari_tbl" EntitySet="BitkiZararlilari_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriBitki_tbl_BitkiDetay_tbl" Association="Self.FK_FavoriBitki_tbl_BitkiDetay_tbl">
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+            <End Role="FavoriBitki_tbl" EntitySet="FavoriBitki_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriBitki_tbl_Kullanici_tbl" Association="Self.FK_FavoriBitki_tbl_Kullanici_tbl">
+            <End Role="Kullanici_tbl" EntitySet="Kullanici_tbl" />
+            <End Role="FavoriBitki_tbl" EntitySet="FavoriBitki_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BitkimiTaniModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AraziBilgileri_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="Ada" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Pafta" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Parsel" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YuzOlcumu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitkiAd_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TurkceAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="IngilizceAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="LatinceAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="SinonimAdi" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="YerelAdlar" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="KayitVersiyon" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="Aktif" Type="Int16" />
+          <Property Name="Silik" Type="Int32" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="BitkiDetay_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Bitki_Ad_ID" Type="Int32" />
+          <Property Name="Bitki_Sistematik_ID" Type="Int32" />
+          <Property Name="Bitki_Morfoloji_ID" Type="Int32" />
+          <Property Name="Bitki_Ekoloji_ID" Type="Int32" />
+          <Property Name="Bitki_Uretim_ID" Type="Int32" />
+          <Property Name="Bitki_Tanima_ID" Type="Int32" />
+          <Property Name="Bitki_Kullanim_ID" Type="Int32" />
+          <Property Name="Bitki_EkBilgiler_ID" Type="Int32" />
+          <Property Name="Bitki_Hastaliklari_ID" Type="Int32" />
+          <Property Name="Bitki_Zararlilari_ID" Type="Int32" />
+          <Property Name="BilgiEkleyenKullanici_ID" Type="Int32" />
+          <Property Name="BitkiResimleri_ID" Type="Int32" />
+          <Property Name="Bitki_EklenmeZamani" Type="DateTime" Precision="0" />
+          <Property Name="Konum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sil" Type="Boolean" />
+          <Property Name="Güncelle" Type="Boolean" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="Ekle" Type="Boolean" />
+          <Property Name="YazmaYetkisi" Type="Boolean" />
+          <NavigationProperty Name="BitkiHastaliklari_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiHastaliklari_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiHastaliklari_tbl" />
+          <NavigationProperty Name="BitkiKullanim_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiKullanim_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiKullanim_tbl" />
+          <NavigationProperty Name="BitkiMorfoloji_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiMorfoloji_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiMorfoloji_tbl" />
+          <NavigationProperty Name="BitkiResimleri_Test_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiResimleri_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiResimleri_Test_tbl" />
+          <NavigationProperty Name="BitkiSistematigi_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiSistematigi_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiSistematigi_tbl" />
+          <NavigationProperty Name="BitkiTanima_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiTanima_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiTanima_tbl" />
+          <NavigationProperty Name="BitkiZararlilari_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiZararlilari_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiZararlilari_tbl" />
+          <NavigationProperty Name="EkBilgiler_tbl" Relationship="Self.FK_BitkiDetay_tbl_EkBilgiler_tbl" FromRole="BitkiDetay_tbl" ToRole="EkBilgiler_tbl" />
+          <NavigationProperty Name="BitkiEkoloji_tbl" Relationship="Self.FK_BitkiDetay_tbl_Ekoloji_tbl" FromRole="BitkiDetay_tbl" ToRole="BitkiEkoloji_tbl" />
+          <NavigationProperty Name="Uretim_tbl" Relationship="Self.FK_BitkiDetay_tbl_Uretim_tbl" FromRole="BitkiDetay_tbl" ToRole="Uretim_tbl" />
+          <NavigationProperty Name="FavoriBitki_tbl" Relationship="Self.FK_FavoriBitki_tbl_BitkiDetay_tbl" FromRole="BitkiDetay_tbl" ToRole="FavoriBitki_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiEkoloji_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="Iklim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Isik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sicaklik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gorunus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="P" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakYapisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakEnDusuk_Ph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakEnYuksek_Ph" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolgeSoguklugu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BolgeSicakligiGunSayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KusakSoguklugu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KusakSicakligi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Minerallar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakPh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_Ekoloji_tbl" FromRole="BitkiEkoloji_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiHastaliklari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiHastalikSinifi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BitkiHastalikAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="HastalikResimleri_ID" Type="Int32" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiHastaliklari_tbl" FromRole="BitkiHastaliklari_tbl" ToRole="BitkiDetay_tbl" />
+          <NavigationProperty Name="BitkiHastalikResimleri_Test_tbl" Relationship="Self.FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl" FromRole="BitkiHastaliklari_tbl" ToRole="BitkiHastalikResimleri_Test_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiHastalikResimleri_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiHastalikResimleri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitkiHastalikResimleri_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resimler" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="BitkiHastaliklari_tbl" Relationship="Self.FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl" FromRole="BitkiHastalikResimleri_Test_tbl" ToRole="BitkiHastaliklari_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiKullanim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="KullanimAlanlari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PeyzajdaKullanim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SusBitkileri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TibbiAramotikBitkiler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiKullanim_tbl" FromRole="BitkiKullanim_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiMineraller_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="MineralAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MineralHakkindaBilgiler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MineralMinDegeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MineralMaxDegeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TopraktaBulunmasiGerekenMineraller" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AnalizBirimi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitkiMorfoloji_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="GenelBilgi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CiceklenmeZamani" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YaprakTipi" Type="Byte" />
+          <Property Name="Kokusu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnDusukRakim" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EnYuksekRakim" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Budama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MeyveTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DalFormu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cicek" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CicekRengi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CiceklilikSuresi" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EnUzunBoy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnKisaBoy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrtalamaBoy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YaprakDizilisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiMorfoloji_tbl" FromRole="BitkiMorfoloji_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiResimleri_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EgitimResimleri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitkiResimleri_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genel_BitkiResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Cicek_BitkiResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Yaprak_BitkiResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Govde_BitkiResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Meyvesi_BitkiResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BegeniPuani" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BegenmemePuani" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FavoriPuani" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Aktif" Type="Int16" />
+          <Property Name="Silik" Type="Int32" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiResimleri_tbl" FromRole="BitkiResimleri_Test_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiSistematigi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="Alem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bolum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sinif" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Takim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Familya" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Cins" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AltTurler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Aktif" Type="Int16" />
+          <Property Name="Silik" Type="Int32" />
+          <Property Name="KayitVersiyon" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiSistematigi_tbl" FromRole="BitkiSistematigi_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiTanima_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="BitkiTipi_Tur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Toleranslari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetistigiSehirler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AnavataniVeDogalYayilisAlanlari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ArsizlikDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetismeDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DogalYasamAlanlari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YasamSuresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToksikOzellikler" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HangiDonem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BitkiYetismeAlanlari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Endemik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiTanima_tbl" FromRole="BitkiTanima_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="BitkiTur_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiTur" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="BitkiZararlilari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiZararlilariSinifi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="BitkiZararlilariAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ZararlininResimleri_ID" Type="Int32" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_BitkiZararlilari_tbl" FromRole="BitkiZararlilari_tbl" ToRole="BitkiDetay_tbl" />
+          <NavigationProperty Name="ZararlilarinResim_Test_tbl" Relationship="Self.FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl" FromRole="BitkiZararlilari_tbl" ToRole="ZararlilarinResim_Test_tbl" />
+        </EntityType>
+        <EntityType Name="EkBilgiler_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="Notlar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kaynaklar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_EkBilgiler_tbl" FromRole="EkBilgiler_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="Ekip_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EkipAdi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="EkipKonumAdresi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Kullanici_ID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="OlusturmaTarihi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="EkipIletisimTelefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="FavoriBitki_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="Degerlendirmeler" Type="Byte" />
+          <Property Name="EklenmeTarihi" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_FavoriBitki_tbl_BitkiDetay_tbl" FromRole="FavoriBitki_tbl" ToRole="BitkiDetay_tbl" />
+          <NavigationProperty Name="Kullanici_tbl" Relationship="Self.FK_FavoriBitki_tbl_Kullanici_tbl" FromRole="FavoriBitki_tbl" ToRole="Kullanici_tbl" />
+        </EntityType>
+        <EntityType Name="Gubre_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UrunBilgisi_ID" Type="Int32" />
+          <Property Name="Numune_ID" Type="Int32" />
+          <Property Name="AraziBilgileri_ID" Type="Int32" />
+          <Property Name="GubreAnalizi" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="EkimGubresiTavsiyesi" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="EkimGubresiTarih" Type="DateTime" Precision="0" />
+          <Property Name="EkimGubresiMiktari" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="UstGubreTavsiyesi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UstGubreMiktari" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="UstGubreTarih" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DonusumKatsayisi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Hastalik_BesinEksikligi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BesinEksiligiMineralAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnSikGorulenMineralEksikligi" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="HastalikAdlari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastalikSinif_ID" Type="Int32" />
+          <Property Name="HastalikAdi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="HastalikBelirtileri" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HastalikResimleri" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HastalikSiniflari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HastalikSinifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HavaDurumu_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sicaklik" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Yagis" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Nem" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Ruzgar" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="DenizeIndirgenmisBasinc" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="AktüelBasinc" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="Tarih" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HavaDurumuWeb_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HavaDurumuWebAdresi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HavaDurumuWebAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ilce_tbl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="il_id" Type="Int32" />
+          <Property Name="ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Kullanici_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="Sehir" Type="Byte" />
+          <Property Name="DogumTarihi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CepTelefonu" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CepTelefonuOnayKodu" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailSifreOnay" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="Onay" Type="Boolean" />
+          <Property Name="Token" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="0" />
+          <Property Name="GuncellemeTarihi" Type="DateTime" Precision="0" />
+          <Property Name="SilinmeTarihi" Type="DateTime" Precision="0" />
+          <Property Name="Aktif" Type="Boolean" />
+          <NavigationProperty Name="FavoriBitki_tbl" Relationship="Self.FK_FavoriBitki_tbl_Kullanici_tbl" FromRole="Kullanici_tbl" ToRole="FavoriBitki_tbl" />
+        </EntityType>
+        <EntityType Name="KullaniciRoles_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <Property Name="RoleID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KullaniciSosyalMedya_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="facebook" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="instagram" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="twitter" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KullaniciYorumlari_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="KullaniciYorumlari" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="YorumTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Logs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <Property Name="ErrorMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorAction" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorDetail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorController" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MahsulBilgisi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="TarimSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HasatZamani" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DikimZamani" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OlgunlasmaSuresi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Mail_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" />
+          <Property Name="KimeGonderildiID" Type="Int32" />
+          <Property Name="MailBaslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MailKonusu" Type="String" MaxLength="550" FixedLength="false" Unicode="true" />
+          <Property Name="GonderilmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="NumuneKonum_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumuneID" Type="Int32" />
+          <Property Name="yKonum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="xKonum" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Aktif" Type="Int16" />
+          <Property Name="Silik" Type="Int32" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="GuncellenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Roles_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kullanici_ID" Type="Int32" />
+          <Property Name="YetkiTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YetkiTipi" Type="Byte" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ToprakAnalizi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NumuneNo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="NumuneTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AnalizID" Type="Int32" />
+          <Property Name="KonumID" Type="Int32" />
+          <Property Name="UrunBitki_ID" Type="Int32" />
+          <Property Name="Derinlik" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ToprakMineral_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="MineralAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MineralHakkindaBilgi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakMinDegeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ToprakMaxDegeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ToprakMineralleri_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AnalizAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AnalizSonucu" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AnalizMinDegeri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AnalizMaxDegeri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nem" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="AnalizBirimi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MineralHakkindaBilgi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Uretim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BitkiAd_ID" Type="Int32" />
+          <Property Name="VideoLinki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UretimYontemleri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CelikleUretim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GelisimHizi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BakimIhtiyaci" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SulamaYontemi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TohumDikimDerinligi_Min" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TohumDikimDerinligi_Max" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AraziOlcusu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SulamaTarihi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RuzgarHizi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrtamSicakligi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SogukKusak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SicakKusak" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YillikSicaklikGunSayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoguyaDayaniklililkSicaklikAraligi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MevsimineGore" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BitkiDetay_tbl" Relationship="Self.FK_BitkiDetay_tbl_Uretim_tbl" FromRole="Uretim_tbl" ToRole="BitkiDetay_tbl" />
+        </EntityType>
+        <EntityType Name="versiyon_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dizin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="versiyon" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="versiyonTarihi" Type="DateTime" Precision="0" />
+          <Property Name="versiyonAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="aktif" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Yaprak_AyasinaGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="IgneYapraklilar" Type="Boolean" />
+          <Property Name="DikenliYapraklilar" Type="Boolean" />
+          <Property Name="OvalYapraklilar" Type="Boolean" />
+          <Property Name="SeritYapraklilar" Type="Boolean" />
+          <Property Name="SpatulYapraklilar" Type="Boolean" />
+          <Property Name="EtliYapraklilar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Yaprak_Damarimsi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="AgsiDamar" Type="Boolean" />
+          <Property Name="ParalelDamar" Type="Boolean" />
+          <Property Name="BasitDamar" Type="Boolean" />
+          <Property Name="CatalsiDamar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Yaprak_DizlislerineGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitk_ID" Type="Int32" />
+          <Property Name="SarmalDizlisliYapraklar" Type="Boolean" />
+          <Property Name="HalkaliDizlisliYapraklar" Type="Boolean" />
+          <Property Name="KarsilikliDizlisliYapraklar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Yaprak_KenarlarinaGore_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Bitki_ID" Type="Int32" />
+          <Property Name="DuzKenar" Type="Boolean" />
+          <Property Name="DisliKenar" Type="Boolean" />
+          <Property Name="BolmeliKenar" Type="Boolean" />
+          <Property Name="ParcaKenar" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="YaprakTipi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YaprakTipi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="YaprakTuru_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YaprakTipi" Type="Int32" />
+          <Property Name="YaprakAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ZararliHakkindaBilgi_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZararliTuru_ID" Type="Byte" />
+          <Property Name="ZararlininAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Resimleri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ZararlilarinResim_Egitim_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="ZararlilarinResim_Egitim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ZararlilarinResim_Test_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZararliResimleri" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="BitkiZararlilari_tbl" Relationship="Self.FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl" FromRole="ZararlilarinResim_Test_tbl" ToRole="BitkiZararlilari_tbl" />
+        </EntityType>
+        <EntityType Name="ZararliTuru_tbl">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ZararliTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="il_tbl">
+          <Key>
+            <PropertyRef Name="il_ad" />
+            <PropertyRef Name="plaka_no" />
+            <PropertyRef Name="telefon_kodu" />
+          </Key>
+          <Property Name="il_ad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="plaka_no" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefon_kodu" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BitkiDetay_tbl_BitkiHastaliklari_tbl">
+          <End Role="BitkiHastaliklari_tbl" Type="Self.BitkiHastaliklari_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiHastaliklari_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Hastaliklari_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiKullanim_tbl">
+          <End Role="BitkiKullanim_tbl" Type="Self.BitkiKullanim_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiKullanim_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Kullanim_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiMorfoloji_tbl">
+          <End Role="BitkiMorfoloji_tbl" Type="Self.BitkiMorfoloji_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiMorfoloji_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Morfoloji_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiResimleri_tbl">
+          <End Role="BitkiResimleri_Test_tbl" Type="Self.BitkiResimleri_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiResimleri_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="BitkiResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiSistematigi_tbl">
+          <End Role="BitkiSistematigi_tbl" Type="Self.BitkiSistematigi_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiSistematigi_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Sistematik_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiTanima_tbl">
+          <End Role="BitkiTanima_tbl" Type="Self.BitkiTanima_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiTanima_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Tanima_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_BitkiZararlilari_tbl">
+          <End Role="BitkiZararlilari_tbl" Type="Self.BitkiZararlilari_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiZararlilari_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Zararlilari_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_EkBilgiler_tbl">
+          <End Role="EkBilgiler_tbl" Type="Self.EkBilgiler_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EkBilgiler_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_EkBilgiler_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_Ekoloji_tbl">
+          <End Role="BitkiEkoloji_tbl" Type="Self.BitkiEkoloji_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiEkoloji_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Ekoloji_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiDetay_tbl_Uretim_tbl">
+          <End Role="Uretim_tbl" Type="Self.Uretim_tbl" Multiplicity="0..1" />
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uretim_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiDetay_tbl">
+              <PropertyRef Name="Bitki_Tanima_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriBitki_tbl_BitkiDetay_tbl">
+          <End Role="BitkiDetay_tbl" Type="Self.BitkiDetay_tbl" Multiplicity="0..1" />
+          <End Role="FavoriBitki_tbl" Type="Self.FavoriBitki_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiDetay_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriBitki_tbl">
+              <PropertyRef Name="Bitki_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl">
+          <End Role="BitkiHastalikResimleri_Test_tbl" Type="Self.BitkiHastalikResimleri_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiHastaliklari_tbl" Type="Self.BitkiHastaliklari_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BitkiHastalikResimleri_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiHastaliklari_tbl">
+              <PropertyRef Name="HastalikResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl">
+          <End Role="ZararlilarinResim_Test_tbl" Type="Self.ZararlilarinResim_Test_tbl" Multiplicity="0..1" />
+          <End Role="BitkiZararlilari_tbl" Type="Self.BitkiZararlilari_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ZararlilarinResim_Test_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BitkiZararlilari_tbl">
+              <PropertyRef Name="ZararlininResimleri_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FavoriBitki_tbl_Kullanici_tbl">
+          <End Role="Kullanici_tbl" Type="Self.Kullanici_tbl" Multiplicity="0..1" />
+          <End Role="FavoriBitki_tbl" Type="Self.FavoriBitki_tbl" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici_tbl">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FavoriBitki_tbl">
+              <PropertyRef Name="Kullanici_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BitkimiTaniEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AraziBilgileri_tbl" EntityType="Self.AraziBilgileri_tbl" />
+          <EntitySet Name="BitkiAd_tbl" EntityType="Self.BitkiAd_tbl" />
+          <EntitySet Name="BitkiDetay_tbl" EntityType="Self.BitkiDetay_tbl" />
+          <EntitySet Name="BitkiEkoloji_tbl" EntityType="Self.BitkiEkoloji_tbl" />
+          <EntitySet Name="BitkiHastaliklari_tbl" EntityType="Self.BitkiHastaliklari_tbl" />
+          <EntitySet Name="BitkiHastalikResimleri_Egitim_tbl" EntityType="Self.BitkiHastalikResimleri_Egitim_tbl" />
+          <EntitySet Name="BitkiHastalikResimleri_Test_tbl" EntityType="Self.BitkiHastalikResimleri_Test_tbl" />
+          <EntitySet Name="BitkiKullanim_tbl" EntityType="Self.BitkiKullanim_tbl" />
+          <EntitySet Name="BitkiMineraller_tbl" EntityType="Self.BitkiMineraller_tbl" />
+          <EntitySet Name="BitkiMorfoloji_tbl" EntityType="Self.BitkiMorfoloji_tbl" />
+          <EntitySet Name="BitkiResimleri_Egitim_tbl" EntityType="Self.BitkiResimleri_Egitim_tbl" />
+          <EntitySet Name="BitkiResimleri_Test_tbl" EntityType="Self.BitkiResimleri_Test_tbl" />
+          <EntitySet Name="BitkiSistematigi_tbl" EntityType="Self.BitkiSistematigi_tbl" />
+          <EntitySet Name="BitkiTanima_tbl" EntityType="Self.BitkiTanima_tbl" />
+          <EntitySet Name="BitkiTur_tbl" EntityType="Self.BitkiTur_tbl" />
+          <EntitySet Name="BitkiZararlilari_tbl" EntityType="Self.BitkiZararlilari_tbl" />
+          <EntitySet Name="EkBilgiler_tbl" EntityType="Self.EkBilgiler_tbl" />
+          <EntitySet Name="Ekip_tbl" EntityType="Self.Ekip_tbl" />
+          <EntitySet Name="FavoriBitki_tbl" EntityType="Self.FavoriBitki_tbl" />
+          <EntitySet Name="Gubre_tbl" EntityType="Self.Gubre_tbl" />
+          <EntitySet Name="Hastalik_BesinEksikligi_tbl" EntityType="Self.Hastalik_BesinEksikligi_tbl" />
+          <EntitySet Name="HastalikAdlari_tbl" EntityType="Self.HastalikAdlari_tbl" />
+          <EntitySet Name="HastalikSiniflari_tbl" EntityType="Self.HastalikSiniflari_tbl" />
+          <EntitySet Name="HavaDurumu_tbl" EntityType="Self.HavaDurumu_tbl" />
+          <EntitySet Name="HavaDurumuWebAdresi_tbl" EntityType="Self.HavaDurumuWebAdresi_tbl" />
+          <EntitySet Name="ilce_tbl" EntityType="Self.ilce_tbl" />
+          <EntitySet Name="Kullanici_tbl" EntityType="Self.Kullanici_tbl" />
+          <EntitySet Name="KullaniciRoles_tbl" EntityType="Self.KullaniciRoles_tbl" />
+          <EntitySet Name="KullaniciSosyalMedya_tbl" EntityType="Self.KullaniciSosyalMedya_tbl" />
+          <EntitySet Name="KullaniciYorumlari_tbl" EntityType="Self.KullaniciYorumlari_tbl" />
+          <EntitySet Name="Logs" EntityType="Self.Logs" />
+          <EntitySet Name="MahsulBilgisi_tbl" EntityType="Self.MahsulBilgisi_tbl" />
+          <EntitySet Name="Mail_tbl" EntityType="Self.Mail_tbl" />
+          <EntitySet Name="NumuneKonum_tbl" EntityType="Self.NumuneKonum_tbl" />
+          <EntitySet Name="Roles_tbl" EntityType="Self.Roles_tbl" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ToprakAnalizi_tbl" EntityType="Self.ToprakAnalizi_tbl" />
+          <EntitySet Name="ToprakMineral_tbl" EntityType="Self.ToprakMineral_tbl" />
+          <EntitySet Name="ToprakMineralleri_tbl" EntityType="Self.ToprakMineralleri_tbl" />
+          <EntitySet Name="Uretim_tbl" EntityType="Self.Uretim_tbl" />
+          <EntitySet Name="versiyon_tbl" EntityType="Self.versiyon_tbl" />
+          <EntitySet Name="Yaprak_AyasinaGore_tbl" EntityType="Self.Yaprak_AyasinaGore_tbl" />
+          <EntitySet Name="Yaprak_Damarimsi_tbl" EntityType="Self.Yaprak_Damarimsi_tbl" />
+          <EntitySet Name="Yaprak_DizlislerineGore_tbl" EntityType="Self.Yaprak_DizlislerineGore_tbl" />
+          <EntitySet Name="Yaprak_KenarlarinaGore_tbl" EntityType="Self.Yaprak_KenarlarinaGore_tbl" />
+          <EntitySet Name="YaprakTipi_tbl" EntityType="Self.YaprakTipi_tbl" />
+          <EntitySet Name="YaprakTuru_tbl" EntityType="Self.YaprakTuru_tbl" />
+          <EntitySet Name="ZararliHakkindaBilgi_tbl" EntityType="Self.ZararliHakkindaBilgi_tbl" />
+          <EntitySet Name="ZararlilarinResim_Egitim_tbl" EntityType="Self.ZararlilarinResim_Egitim_tbl" />
+          <EntitySet Name="ZararlilarinResim_Test_tbl" EntityType="Self.ZararlilarinResim_Test_tbl" />
+          <EntitySet Name="ZararliTuru_tbl" EntityType="Self.ZararliTuru_tbl" />
+          <EntitySet Name="il_tbl" EntityType="Self.il_tbl" />
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiHastaliklari_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiHastaliklari_tbl">
+            <End Role="BitkiHastaliklari_tbl" EntitySet="BitkiHastaliklari_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiKullanim_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiKullanim_tbl">
+            <End Role="BitkiKullanim_tbl" EntitySet="BitkiKullanim_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiMorfoloji_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiMorfoloji_tbl">
+            <End Role="BitkiMorfoloji_tbl" EntitySet="BitkiMorfoloji_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiResimleri_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiResimleri_tbl">
+            <End Role="BitkiResimleri_Test_tbl" EntitySet="BitkiResimleri_Test_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiSistematigi_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiSistematigi_tbl">
+            <End Role="BitkiSistematigi_tbl" EntitySet="BitkiSistematigi_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiTanima_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiTanima_tbl">
+            <End Role="BitkiTanima_tbl" EntitySet="BitkiTanima_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_BitkiZararlilari_tbl" Association="Self.FK_BitkiDetay_tbl_BitkiZararlilari_tbl">
+            <End Role="BitkiZararlilari_tbl" EntitySet="BitkiZararlilari_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_EkBilgiler_tbl" Association="Self.FK_BitkiDetay_tbl_EkBilgiler_tbl">
+            <End Role="EkBilgiler_tbl" EntitySet="EkBilgiler_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_Ekoloji_tbl" Association="Self.FK_BitkiDetay_tbl_Ekoloji_tbl">
+            <End Role="BitkiEkoloji_tbl" EntitySet="BitkiEkoloji_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiDetay_tbl_Uretim_tbl" Association="Self.FK_BitkiDetay_tbl_Uretim_tbl">
+            <End Role="Uretim_tbl" EntitySet="Uretim_tbl" />
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriBitki_tbl_BitkiDetay_tbl" Association="Self.FK_FavoriBitki_tbl_BitkiDetay_tbl">
+            <End Role="BitkiDetay_tbl" EntitySet="BitkiDetay_tbl" />
+            <End Role="FavoriBitki_tbl" EntitySet="FavoriBitki_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl" Association="Self.FK_BitkiHastaliklari_tbl_BitkiHastalikResimleri_tbl">
+            <End Role="BitkiHastalikResimleri_Test_tbl" EntitySet="BitkiHastalikResimleri_Test_tbl" />
+            <End Role="BitkiHastaliklari_tbl" EntitySet="BitkiHastaliklari_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl" Association="Self.FK_BitkiZararlilari_tbl_ZararlilarinResim_tbl">
+            <End Role="ZararlilarinResim_Test_tbl" EntitySet="ZararlilarinResim_Test_tbl" />
+            <End Role="BitkiZararlilari_tbl" EntitySet="BitkiZararlilari_tbl" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FavoriBitki_tbl_Kullanici_tbl" Association="Self.FK_FavoriBitki_tbl_Kullanici_tbl">
+            <End Role="Kullanici_tbl" EntitySet="Kullanici_tbl" />
+            <End Role="FavoriBitki_tbl" EntitySet="FavoriBitki_tbl" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BitkimiTaniModelStoreContainer" CdmEntityContainer="BitkimiTaniEntities">
+          <EntitySetMapping Name="AraziBilgileri_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.AraziBilgileri_tbl">
+              <MappingFragment StoreEntitySet="AraziBilgileri_tbl">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="Ada" ColumnName="Ada" />
+                <ScalarProperty Name="Pafta" ColumnName="Pafta" />
+                <ScalarProperty Name="Parsel" ColumnName="Parsel" />
+                <ScalarProperty Name="YuzOlcumu" ColumnName="YuzOlcumu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiAd_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiAd_tbl">
+              <MappingFragment StoreEntitySet="BitkiAd_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TurkceAdi" ColumnName="TurkceAdi" />
+                <ScalarProperty Name="IngilizceAdi" ColumnName="IngilizceAdi" />
+                <ScalarProperty Name="LatinceAdi" ColumnName="LatinceAdi" />
+                <ScalarProperty Name="SinonimAdi" ColumnName="SinonimAdi" />
+                <ScalarProperty Name="YerelAdlar" ColumnName="YerelAdlar" />
+                <ScalarProperty Name="KayitVersiyon" ColumnName="KayitVersiyon" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Silik" ColumnName="Silik" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="GuncellenmeTarihi" ColumnName="GuncellenmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiDetay_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiDetay_tbl">
+              <MappingFragment StoreEntitySet="BitkiDetay_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_Ad_ID" ColumnName="Bitki_Ad_ID" />
+                <ScalarProperty Name="Bitki_Sistematik_ID" ColumnName="Bitki_Sistematik_ID" />
+                <ScalarProperty Name="Bitki_Morfoloji_ID" ColumnName="Bitki_Morfoloji_ID" />
+                <ScalarProperty Name="Bitki_Ekoloji_ID" ColumnName="Bitki_Ekoloji_ID" />
+                <ScalarProperty Name="Bitki_Uretim_ID" ColumnName="Bitki_Uretim_ID" />
+                <ScalarProperty Name="Bitki_Tanima_ID" ColumnName="Bitki_Tanima_ID" />
+                <ScalarProperty Name="Bitki_Kullanim_ID" ColumnName="Bitki_Kullanim_ID" />
+                <ScalarProperty Name="Bitki_EkBilgiler_ID" ColumnName="Bitki_EkBilgiler_ID" />
+                <ScalarProperty Name="Bitki_Hastaliklari_ID" ColumnName="Bitki_Hastaliklari_ID" />
+                <ScalarProperty Name="Bitki_Zararlilari_ID" ColumnName="Bitki_Zararlilari_ID" />
+                <ScalarProperty Name="BilgiEkleyenKullanici_ID" ColumnName="BilgiEkleyenKullanici_ID" />
+                <ScalarProperty Name="BitkiResimleri_ID" ColumnName="BitkiResimleri_ID" />
+                <ScalarProperty Name="Bitki_EklenmeZamani" ColumnName="Bitki_EklenmeZamani" />
+                <ScalarProperty Name="Konum" ColumnName="Konum" />
+                <ScalarProperty Name="Sil" ColumnName="Sil" />
+                <ScalarProperty Name="Güncelle" ColumnName="Güncelle" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Ekle" ColumnName="Ekle" />
+                <ScalarProperty Name="YazmaYetkisi" ColumnName="YazmaYetkisi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiEkoloji_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiEkoloji_tbl">
+              <MappingFragment StoreEntitySet="BitkiEkoloji_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="Iklim" ColumnName="Iklim" />
+                <ScalarProperty Name="Isik" ColumnName="Isik" />
+                <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="Gorunus" ColumnName="Gorunus" />
+                <ScalarProperty Name="Ca" ColumnName="Ca" />
+                <ScalarProperty Name="P" ColumnName="P" />
+                <ScalarProperty Name="Soc" ColumnName="Soc" />
+                <ScalarProperty Name="ToprakYapisi" ColumnName="ToprakYapisi" />
+                <ScalarProperty Name="ToprakEnDusuk_Ph" ColumnName="ToprakEnDusuk_Ph" />
+                <ScalarProperty Name="ToprakEnYuksek_Ph" ColumnName="ToprakEnYuksek_Ph" />
+                <ScalarProperty Name="BolgeSoguklugu" ColumnName="BolgeSoguklugu" />
+                <ScalarProperty Name="BolgeSicakligiGunSayisi" ColumnName="BolgeSicakligiGunSayisi" />
+                <ScalarProperty Name="KusakSoguklugu" ColumnName="KusakSoguklugu" />
+                <ScalarProperty Name="KusakSicakligi" ColumnName="KusakSicakligi" />
+                <ScalarProperty Name="Minerallar" ColumnName="Minerallar" />
+                <ScalarProperty Name="ToprakPh" ColumnName="ToprakPh" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiHastaliklari_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiHastaliklari_tbl">
+              <MappingFragment StoreEntitySet="BitkiHastaliklari_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiHastalikSinifi" ColumnName="BitkiHastalikSinifi" />
+                <ScalarProperty Name="BitkiHastalikAdi" ColumnName="BitkiHastalikAdi" />
+                <ScalarProperty Name="HastalikResimleri_ID" ColumnName="HastalikResimleri_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiHastalikResimleri_Egitim_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiHastalikResimleri_Egitim_tbl">
+              <MappingFragment StoreEntitySet="BitkiHastalikResimleri_Egitim_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BitkiHastalikResimleri" ColumnName="BitkiHastalikResimleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiHastalikResimleri_Test_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiHastalikResimleri_Test_tbl">
+              <MappingFragment StoreEntitySet="BitkiHastalikResimleri_Test_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Resimler" ColumnName="Resimler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiKullanim_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiKullanim_tbl">
+              <MappingFragment StoreEntitySet="BitkiKullanim_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="KullanimAlanlari" ColumnName="KullanimAlanlari" />
+                <ScalarProperty Name="PeyzajdaKullanim" ColumnName="PeyzajdaKullanim" />
+                <ScalarProperty Name="SusBitkileri" ColumnName="SusBitkileri" />
+                <ScalarProperty Name="TibbiAramotikBitkiler" ColumnName="TibbiAramotikBitkiler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiMineraller_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiMineraller_tbl">
+              <MappingFragment StoreEntitySet="BitkiMineraller_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="MineralAdi" ColumnName="MineralAdi" />
+                <ScalarProperty Name="MineralHakkindaBilgiler" ColumnName="MineralHakkindaBilgiler" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="MineralMinDegeri" ColumnName="MineralMinDegeri" />
+                <ScalarProperty Name="MineralMaxDegeri" ColumnName="MineralMaxDegeri" />
+                <ScalarProperty Name="TopraktaBulunmasiGerekenMineraller" ColumnName="TopraktaBulunmasiGerekenMineraller" />
+                <ScalarProperty Name="AnalizBirimi" ColumnName="AnalizBirimi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiMorfoloji_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiMorfoloji_tbl">
+              <MappingFragment StoreEntitySet="BitkiMorfoloji_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="GenelBilgi" ColumnName="GenelBilgi" />
+                <ScalarProperty Name="CiceklenmeZamani" ColumnName="CiceklenmeZamani" />
+                <ScalarProperty Name="YaprakTipi" ColumnName="YaprakTipi" />
+                <ScalarProperty Name="Kokusu" ColumnName="Kokusu" />
+                <ScalarProperty Name="EnDusukRakim" ColumnName="EnDusukRakim" />
+                <ScalarProperty Name="EnYuksekRakim" ColumnName="EnYuksekRakim" />
+                <ScalarProperty Name="Budama" ColumnName="Budama" />
+                <ScalarProperty Name="MeyveTipi" ColumnName="MeyveTipi" />
+                <ScalarProperty Name="DalFormu" ColumnName="DalFormu" />
+                <ScalarProperty Name="Cicek" ColumnName="Cicek" />
+                <ScalarProperty Name="CicekRengi" ColumnName="CicekRengi" />
+                <ScalarProperty Name="CiceklilikSuresi" ColumnName="CiceklilikSuresi" />
+                <ScalarProperty Name="EnUzunBoy" ColumnName="EnUzunBoy" />
+                <ScalarProperty Name="EnKisaBoy" ColumnName="EnKisaBoy" />
+                <ScalarProperty Name="OrtalamaBoy" ColumnName="OrtalamaBoy" />
+                <ScalarProperty Name="YaprakDizilisi" ColumnName="YaprakDizilisi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiResimleri_Egitim_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiResimleri_Egitim_tbl">
+              <MappingFragment StoreEntitySet="BitkiResimleri_Egitim_tbl">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="EgitimResimleri" ColumnName="EgitimResimleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiResimleri_Test_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiResimleri_Test_tbl">
+              <MappingFragment StoreEntitySet="BitkiResimleri_Test_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Genel_BitkiResimleri" ColumnName="Genel_BitkiResimleri" />
+                <ScalarProperty Name="Cicek_BitkiResimleri" ColumnName="Cicek_BitkiResimleri" />
+                <ScalarProperty Name="Yaprak_BitkiResimleri" ColumnName="Yaprak_BitkiResimleri" />
+                <ScalarProperty Name="Govde_BitkiResimleri" ColumnName="Govde_BitkiResimleri" />
+                <ScalarProperty Name="Meyvesi_BitkiResimleri" ColumnName="Meyvesi_BitkiResimleri" />
+                <ScalarProperty Name="BegeniPuani" ColumnName="BegeniPuani" />
+                <ScalarProperty Name="BegenmemePuani" ColumnName="BegenmemePuani" />
+                <ScalarProperty Name="FavoriPuani" ColumnName="FavoriPuani" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Silik" ColumnName="Silik" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="GuncellenmeTarihi" ColumnName="GuncellenmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiSistematigi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiSistematigi_tbl">
+              <MappingFragment StoreEntitySet="BitkiSistematigi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="Alem" ColumnName="Alem" />
+                <ScalarProperty Name="Bolum" ColumnName="Bolum" />
+                <ScalarProperty Name="Sinif" ColumnName="Sinif" />
+                <ScalarProperty Name="Takim" ColumnName="Takim" />
+                <ScalarProperty Name="Familya" ColumnName="Familya" />
+                <ScalarProperty Name="Cins" ColumnName="Cins" />
+                <ScalarProperty Name="Tur" ColumnName="Tur" />
+                <ScalarProperty Name="AltTurler" ColumnName="AltTurler" />
+                <ScalarProperty Name="GuncellenmeTarihi" ColumnName="GuncellenmeTarihi" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Silik" ColumnName="Silik" />
+                <ScalarProperty Name="KayitVersiyon" ColumnName="KayitVersiyon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiTanima_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiTanima_tbl">
+              <MappingFragment StoreEntitySet="BitkiTanima_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="BitkiTipi_Tur" ColumnName="BitkiTipi_Tur" />
+                <ScalarProperty Name="Toleranslari" ColumnName="Toleranslari" />
+                <ScalarProperty Name="YetistigiSehirler" ColumnName="YetistigiSehirler" />
+                <ScalarProperty Name="AnavataniVeDogalYayilisAlanlari" ColumnName="AnavataniVeDogalYayilisAlanlari" />
+                <ScalarProperty Name="ArsizlikDurumu" ColumnName="ArsizlikDurumu" />
+                <ScalarProperty Name="YetismeDurumu" ColumnName="YetismeDurumu" />
+                <ScalarProperty Name="DogalYasamAlanlari" ColumnName="DogalYasamAlanlari" />
+                <ScalarProperty Name="YasamSuresi" ColumnName="YasamSuresi" />
+                <ScalarProperty Name="ToksikOzellikler" ColumnName="ToksikOzellikler" />
+                <ScalarProperty Name="HangiDonem" ColumnName="HangiDonem" />
+                <ScalarProperty Name="BitkiYetismeAlanlari" ColumnName="BitkiYetismeAlanlari" />
+                <ScalarProperty Name="Endemik" ColumnName="Endemik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiTur_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiTur_tbl">
+              <MappingFragment StoreEntitySet="BitkiTur_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiTur" ColumnName="BitkiTur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BitkiZararlilari_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.BitkiZararlilari_tbl">
+              <MappingFragment StoreEntitySet="BitkiZararlilari_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiZararlilariSinifi" ColumnName="BitkiZararlilariSinifi" />
+                <ScalarProperty Name="BitkiZararlilariAdi" ColumnName="BitkiZararlilariAdi" />
+                <ScalarProperty Name="ZararlininResimleri_ID" ColumnName="ZararlininResimleri_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EkBilgiler_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.EkBilgiler_tbl">
+              <MappingFragment StoreEntitySet="EkBilgiler_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="Notlar" ColumnName="Notlar" />
+                <ScalarProperty Name="Kaynaklar" ColumnName="Kaynaklar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ekip_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Ekip_tbl">
+              <MappingFragment StoreEntitySet="Ekip_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EkipAdi" ColumnName="EkipAdi" />
+                <ScalarProperty Name="EkipKonumAdresi" ColumnName="EkipKonumAdresi" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="OlusturmaTarihi" ColumnName="OlusturmaTarihi" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="EkipIletisimTelefon" ColumnName="EkipIletisimTelefon" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FavoriBitki_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.FavoriBitki_tbl">
+              <MappingFragment StoreEntitySet="FavoriBitki_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="Degerlendirmeler" ColumnName="Degerlendirmeler" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gubre_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Gubre_tbl">
+              <MappingFragment StoreEntitySet="Gubre_tbl">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UrunBilgisi_ID" ColumnName="UrunBilgisi_ID" />
+                <ScalarProperty Name="Numune_ID" ColumnName="Numune_ID" />
+                <ScalarProperty Name="AraziBilgileri_ID" ColumnName="AraziBilgileri_ID" />
+                <ScalarProperty Name="GubreAnalizi" ColumnName="GubreAnalizi" />
+                <ScalarProperty Name="EkimGubresiTavsiyesi" ColumnName="EkimGubresiTavsiyesi" />
+                <ScalarProperty Name="EkimGubresiTarih" ColumnName="EkimGubresiTarih" />
+                <ScalarProperty Name="EkimGubresiMiktari" ColumnName="EkimGubresiMiktari" />
+                <ScalarProperty Name="UstGubreTavsiyesi" ColumnName="UstGubreTavsiyesi" />
+                <ScalarProperty Name="UstGubreMiktari" ColumnName="UstGubreMiktari" />
+                <ScalarProperty Name="UstGubreTarih" ColumnName="UstGubreTarih" />
+                <ScalarProperty Name="DonusumKatsayisi" ColumnName="DonusumKatsayisi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hastalik_BesinEksikligi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Hastalik_BesinEksikligi_tbl">
+              <MappingFragment StoreEntitySet="Hastalik_BesinEksikligi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BesinEksiligiMineralAdi" ColumnName="BesinEksiligiMineralAdi" />
+                <ScalarProperty Name="EnSikGorulenMineralEksikligi" ColumnName="EnSikGorulenMineralEksikligi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HastalikAdlari_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.HastalikAdlari_tbl">
+              <MappingFragment StoreEntitySet="HastalikAdlari_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HastalikSinif_ID" ColumnName="HastalikSinif_ID" />
+                <ScalarProperty Name="HastalikAdi" ColumnName="HastalikAdi" />
+                <ScalarProperty Name="HastalikBelirtileri" ColumnName="HastalikBelirtileri" />
+                <ScalarProperty Name="HastalikResimleri" ColumnName="HastalikResimleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HastalikSiniflari_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.HastalikSiniflari_tbl">
+              <MappingFragment StoreEntitySet="HastalikSiniflari_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HastalikSinifi" ColumnName="HastalikSinifi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HavaDurumu_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.HavaDurumu_tbl">
+              <MappingFragment StoreEntitySet="HavaDurumu_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Sicaklik" ColumnName="Sicaklik" />
+                <ScalarProperty Name="Yagis" ColumnName="Yagis" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="Ruzgar" ColumnName="Ruzgar" />
+                <ScalarProperty Name="DenizeIndirgenmisBasinc" ColumnName="DenizeIndirgenmisBasinc" />
+                <ScalarProperty Name="AktüelBasinc" ColumnName="AktüelBasinc" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="HavaDurumuWeb_ID" ColumnName="HavaDurumuWeb_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HavaDurumuWebAdresi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.HavaDurumuWebAdresi_tbl">
+              <MappingFragment StoreEntitySet="HavaDurumuWebAdresi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HavaDurumuWebAdresi" ColumnName="HavaDurumuWebAdresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ilce_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ilce_tbl">
+              <MappingFragment StoreEntitySet="ilce_tbl">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="ilce" ColumnName="ilce" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Kullanici_tbl">
+              <MappingFragment StoreEntitySet="Kullanici_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="CepTelefonu" ColumnName="CepTelefonu" />
+                <ScalarProperty Name="CepTelefonuOnayKodu" ColumnName="CepTelefonuOnayKodu" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="MailSifreOnay" ColumnName="MailSifreOnay" />
+                <ScalarProperty Name="Onay" ColumnName="Onay" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="GuncellemeTarihi" ColumnName="GuncellemeTarihi" />
+                <ScalarProperty Name="SilinmeTarihi" ColumnName="SilinmeTarihi" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciRoles_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.KullaniciRoles_tbl">
+              <MappingFragment StoreEntitySet="KullaniciRoles_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciSosyalMedya_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.KullaniciSosyalMedya_tbl">
+              <MappingFragment StoreEntitySet="KullaniciSosyalMedya_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullaniciYorumlari_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.KullaniciYorumlari_tbl">
+              <MappingFragment StoreEntitySet="KullaniciYorumlari_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="KullaniciYorumlari" ColumnName="KullaniciYorumlari" />
+                <ScalarProperty Name="YorumTarihi" ColumnName="YorumTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logs">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Logs">
+              <MappingFragment StoreEntitySet="Logs">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+                <ScalarProperty Name="ErrorAction" ColumnName="ErrorAction" />
+                <ScalarProperty Name="ErrorDetail" ColumnName="ErrorDetail" />
+                <ScalarProperty Name="ErrorController" ColumnName="ErrorController" />
+                <ScalarProperty Name="ErrorTime" ColumnName="ErrorTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MahsulBilgisi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.MahsulBilgisi_tbl">
+              <MappingFragment StoreEntitySet="MahsulBilgisi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="TarimSekli" ColumnName="TarimSekli" />
+                <ScalarProperty Name="HasatZamani" ColumnName="HasatZamani" />
+                <ScalarProperty Name="DikimZamani" ColumnName="DikimZamani" />
+                <ScalarProperty Name="OlgunlasmaSuresi" ColumnName="OlgunlasmaSuresi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mail_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Mail_tbl">
+              <MappingFragment StoreEntitySet="Mail_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KimeGonderildiID" ColumnName="KimeGonderildiID" />
+                <ScalarProperty Name="MailBaslik" ColumnName="MailBaslik" />
+                <ScalarProperty Name="MailKonusu" ColumnName="MailKonusu" />
+                <ScalarProperty Name="GonderilmeTarihi" ColumnName="GonderilmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NumuneKonum_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.NumuneKonum_tbl">
+              <MappingFragment StoreEntitySet="NumuneKonum_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NumuneID" ColumnName="NumuneID" />
+                <ScalarProperty Name="yKonum" ColumnName="yKonum" />
+                <ScalarProperty Name="xKonum" ColumnName="xKonum" />
+                <ScalarProperty Name="Aktif" ColumnName="Aktif" />
+                <ScalarProperty Name="Silik" ColumnName="Silik" />
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="GuncellenmeTarihi" ColumnName="GuncellenmeTarihi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Roles_tbl">
+              <MappingFragment StoreEntitySet="Roles_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Kullanici_ID" ColumnName="Kullanici_ID" />
+                <ScalarProperty Name="YetkiTuru" ColumnName="YetkiTuru" />
+                <ScalarProperty Name="YetkiTipi" ColumnName="YetkiTipi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToprakAnalizi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ToprakAnalizi_tbl">
+              <MappingFragment StoreEntitySet="ToprakAnalizi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NumuneNo" ColumnName="NumuneNo" />
+                <ScalarProperty Name="NumuneTarihi" ColumnName="NumuneTarihi" />
+                <ScalarProperty Name="AnalizID" ColumnName="AnalizID" />
+                <ScalarProperty Name="KonumID" ColumnName="KonumID" />
+                <ScalarProperty Name="UrunBitki_ID" ColumnName="UrunBitki_ID" />
+                <ScalarProperty Name="Derinlik" ColumnName="Derinlik" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToprakMineral_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ToprakMineral_tbl">
+              <MappingFragment StoreEntitySet="ToprakMineral_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="MineralAdi" ColumnName="MineralAdi" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="MineralHakkindaBilgi" ColumnName="MineralHakkindaBilgi" />
+                <ScalarProperty Name="ToprakMinDegeri" ColumnName="ToprakMinDegeri" />
+                <ScalarProperty Name="ToprakMaxDegeri" ColumnName="ToprakMaxDegeri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToprakMineralleri_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ToprakMineralleri_tbl">
+              <MappingFragment StoreEntitySet="ToprakMineralleri_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="AnalizAdi" ColumnName="AnalizAdi" />
+                <ScalarProperty Name="AnalizSonucu" ColumnName="AnalizSonucu" />
+                <ScalarProperty Name="AnalizMinDegeri" ColumnName="AnalizMinDegeri" />
+                <ScalarProperty Name="AnalizMaxDegeri" ColumnName="AnalizMaxDegeri" />
+                <ScalarProperty Name="Nem" ColumnName="Nem" />
+                <ScalarProperty Name="AnalizBirimi" ColumnName="AnalizBirimi" />
+                <ScalarProperty Name="MineralHakkindaBilgi" ColumnName="MineralHakkindaBilgi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uretim_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Uretim_tbl">
+              <MappingFragment StoreEntitySet="Uretim_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BitkiAd_ID" ColumnName="BitkiAd_ID" />
+                <ScalarProperty Name="VideoLinki" ColumnName="VideoLinki" />
+                <ScalarProperty Name="UretimYontemleri" ColumnName="UretimYontemleri" />
+                <ScalarProperty Name="CelikleUretim" ColumnName="CelikleUretim" />
+                <ScalarProperty Name="GelisimHizi" ColumnName="GelisimHizi" />
+                <ScalarProperty Name="BakimIhtiyaci" ColumnName="BakimIhtiyaci" />
+                <ScalarProperty Name="SulamaYontemi" ColumnName="SulamaYontemi" />
+                <ScalarProperty Name="TohumDikimDerinligi_Min" ColumnName="TohumDikimDerinligi_Min" />
+                <ScalarProperty Name="TohumDikimDerinligi_Max" ColumnName="TohumDikimDerinligi_Max" />
+                <ScalarProperty Name="AraziOlcusu" ColumnName="AraziOlcusu" />
+                <ScalarProperty Name="SulamaTarihi" ColumnName="SulamaTarihi" />
+                <ScalarProperty Name="RuzgarHizi" ColumnName="RuzgarHizi" />
+                <ScalarProperty Name="OrtamSicakligi" ColumnName="OrtamSicakligi" />
+                <ScalarProperty Name="SogukKusak" ColumnName="SogukKusak" />
+                <ScalarProperty Name="SicakKusak" ColumnName="SicakKusak" />
+                <ScalarProperty Name="YillikSicaklikGunSayisi" ColumnName="YillikSicaklikGunSayisi" />
+                <ScalarProperty Name="SoguyaDayaniklililkSicaklikAraligi" ColumnName="SoguyaDayaniklililkSicaklikAraligi" />
+                <ScalarProperty Name="MevsimineGore" ColumnName="MevsimineGore" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="versiyon_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.versiyon_tbl">
+              <MappingFragment StoreEntitySet="versiyon_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="dizin" ColumnName="dizin" />
+                <ScalarProperty Name="versiyon" ColumnName="versiyon" />
+                <ScalarProperty Name="versiyonTarihi" ColumnName="versiyonTarihi" />
+                <ScalarProperty Name="versiyonAciklama" ColumnName="versiyonAciklama" />
+                <ScalarProperty Name="aktif" ColumnName="aktif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yaprak_AyasinaGore_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Yaprak_AyasinaGore_tbl">
+              <MappingFragment StoreEntitySet="Yaprak_AyasinaGore_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="IgneYapraklilar" ColumnName="IgneYapraklilar" />
+                <ScalarProperty Name="DikenliYapraklilar" ColumnName="DikenliYapraklilar" />
+                <ScalarProperty Name="OvalYapraklilar" ColumnName="OvalYapraklilar" />
+                <ScalarProperty Name="SeritYapraklilar" ColumnName="SeritYapraklilar" />
+                <ScalarProperty Name="SpatulYapraklilar" ColumnName="SpatulYapraklilar" />
+                <ScalarProperty Name="EtliYapraklilar" ColumnName="EtliYapraklilar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yaprak_Damarimsi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Yaprak_Damarimsi_tbl">
+              <MappingFragment StoreEntitySet="Yaprak_Damarimsi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="AgsiDamar" ColumnName="AgsiDamar" />
+                <ScalarProperty Name="ParalelDamar" ColumnName="ParalelDamar" />
+                <ScalarProperty Name="BasitDamar" ColumnName="BasitDamar" />
+                <ScalarProperty Name="CatalsiDamar" ColumnName="CatalsiDamar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yaprak_DizlislerineGore_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Yaprak_DizlislerineGore_tbl">
+              <MappingFragment StoreEntitySet="Yaprak_DizlislerineGore_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitk_ID" ColumnName="Bitk_ID" />
+                <ScalarProperty Name="SarmalDizlisliYapraklar" ColumnName="SarmalDizlisliYapraklar" />
+                <ScalarProperty Name="HalkaliDizlisliYapraklar" ColumnName="HalkaliDizlisliYapraklar" />
+                <ScalarProperty Name="KarsilikliDizlisliYapraklar" ColumnName="KarsilikliDizlisliYapraklar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yaprak_KenarlarinaGore_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.Yaprak_KenarlarinaGore_tbl">
+              <MappingFragment StoreEntitySet="Yaprak_KenarlarinaGore_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Bitki_ID" ColumnName="Bitki_ID" />
+                <ScalarProperty Name="DuzKenar" ColumnName="DuzKenar" />
+                <ScalarProperty Name="DisliKenar" ColumnName="DisliKenar" />
+                <ScalarProperty Name="BolmeliKenar" ColumnName="BolmeliKenar" />
+                <ScalarProperty Name="ParcaKenar" ColumnName="ParcaKenar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YaprakTipi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.YaprakTipi_tbl">
+              <MappingFragment StoreEntitySet="YaprakTipi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YaprakTipi" ColumnName="YaprakTipi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YaprakTuru_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.YaprakTuru_tbl">
+              <MappingFragment StoreEntitySet="YaprakTuru_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="YaprakTipi" ColumnName="YaprakTipi" />
+                <ScalarProperty Name="YaprakAdi" ColumnName="YaprakAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZararliHakkindaBilgi_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ZararliHakkindaBilgi_tbl">
+              <MappingFragment StoreEntitySet="ZararliHakkindaBilgi_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZararliTuru_ID" ColumnName="ZararliTuru_ID" />
+                <ScalarProperty Name="ZararlininAdi" ColumnName="ZararlininAdi" />
+                <ScalarProperty Name="Resimleri" ColumnName="Resimleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZararlilarinResim_Egitim_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ZararlilarinResim_Egitim_tbl">
+              <MappingFragment StoreEntitySet="ZararlilarinResim_Egitim_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZararlilarinResim_Egitim" ColumnName="ZararlilarinResim_Egitim" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZararlilarinResim_Test_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ZararlilarinResim_Test_tbl">
+              <MappingFragment StoreEntitySet="ZararlilarinResim_Test_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZararliResimleri" ColumnName="ZararliResimleri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ZararliTuru_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.ZararliTuru_tbl">
+              <MappingFragment StoreEntitySet="ZararliTuru_tbl">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ZararliTuru" ColumnName="ZararliTuru" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="il_tbl">
+            <EntityTypeMapping TypeName="BitkimiTaniModel.il_tbl">
+              <MappingFragment StoreEntitySet="il_tbl">
+                <ScalarProperty Name="il_ad" ColumnName="il_ad" />
+                <ScalarProperty Name="plaka_no" ColumnName="plaka_no" />
+                <ScalarProperty Name="telefon_kodu" ColumnName="telefon_kodu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
